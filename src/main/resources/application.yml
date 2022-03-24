@@ -7,9 +7,9 @@ spring:
     base-url: http://54.254.30.227:9411
     enabled: false
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/qpon_auth?createDatabaseIfNotExist=true}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:Dev@#$123}
+    url: ${DB_URL:jdbc:mysql://mqsqldb.qpon.lk/qpon_auth?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:qponadmin}
+    password: ${DB_PASSWORD:QPonpD42cR8823}
     initialization-mode:
   jpa:
     hibernate:
