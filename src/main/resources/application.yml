@@ -1,0 +1,71 @@
+server:
+  port: ${PORT:8081}
+  servlet:
+    context-path: /qpon-auth-service
+spring:
+  zipkin:
+    base-url: http://54.254.30.227:9411
+    enabled: false
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/qpon_auth?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Dev@#$123}
+    initialization-mode:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        formant_sql: true
+  application:
+    name: qpon-auth-service
+    app-key: tokoin-auth-35b4aa84-d847-4dd2-99fa-6c6a4493dce0
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 28788601269-i9fl07mrcem1plph4i58l66m1mmnm28s.apps.googleusercontent.com
+            client-secret: Sl9Ex-9PUbmlV8txIjkvzHa_
+
+application:
+  client-id: tokomobile
+  token-validity: 3600
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+email:
+  password-reset:
+    url: http://localhost:8082/otp-service/api/v1/email/send
+    api-key: otp-c2cc3496-c9f8-4068-a83c-82841b44727b
+    link: http://localhost:4000/password/reset/{token}
+
+## Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+ribbon:
+  ReadTimeout: ${RIBBON_TIMEOUT:6000}
+
+googleAnalytics:
+  propertyId: 289610618
+  pageSize: ${PAGE_SIZE:10}
+
+util:
+  utilServiceAppKey: ${APP_KEY:ccus-c2cc3496-c9f8-4068-a83c-82841b44727b}
+  baseUrl: ${UTIL_BASE_URL:http://localhost:8085/qpon-util-service}
+  uri:
+    sendMail: /api/v1/email/send
+    sendSms: /api/v1/sms/send
+
+accessControl:
+  allowedOrigin: ${ALLOWED_ORIGIN:*}
