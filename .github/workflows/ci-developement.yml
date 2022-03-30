@@ -31,6 +31,6 @@ jobs:
         
       with:
         source: "./target/auth-server-1.0.1-SNAPSHOT.jar"
-        target: "/home/qponprd/"
+        target: "/home/qponprod/"
 
     
