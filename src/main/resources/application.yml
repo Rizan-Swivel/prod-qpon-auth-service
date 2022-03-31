@@ -51,7 +51,7 @@ email:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://172.17.0.5:8761/eureka
 
 ribbon:
   ReadTimeout: ${RIBBON_TIMEOUT:6000}
